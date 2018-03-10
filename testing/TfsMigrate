@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TfsMigrate.Contracts;
+using TfsMigrate.Powershell.Cmdlets;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            var localRepository = @"C:\Users\alast\testrepo64";
+            var repositories = new List<TfsRepository>()
+            {
+                new TfsRepository()
+                {
+                    ProjectCollection = new Uri("https://test.visualstudio.com/"),
+                    Path = "$/tfstest/Test/Blah"
+                }
+            };
+
+            var convertTfsRepository = new ConvertToGit();
+            convertTfsRepository.LocalRepositoryPath = localRepository;
+            convertTfsRepository.Repositories = repositories.ToArray();
+
+            convertTfsRepository.Invoke().GetEnumerator().MoveNext();
+        }
+    }
+}
