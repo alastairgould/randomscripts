@@ -73,7 +73,7 @@ INSERT INTO [dbo].[Voucher]
            (@VoucherCode
            ,N'ToTestUser'
            ,N'FromTestUser'
-           ,N'TestUser@Asos.com'
+           ,N'TestUser@test.com'
            ,N'Have a free legacy voucher!'
            ,'2017-11-02'
            ,24
