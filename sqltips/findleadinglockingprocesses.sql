@@ -1,1 +1,0 @@
-exec beta_lockinfo
